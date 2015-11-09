@@ -24,12 +24,23 @@ endef
 CMAKE_OPTIONS += -DBUILD_TDADMIN=false
 
 define Package/telldus-core/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
-	$(INSTALL_DIR) $(1)/usr/sbin
-	$(CP) $(PKG_INSTALL_DIR)/usr/sbin/* $(1)/usr/sbin/
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
+        $(INSTALL_DIR) $(1)/usr/bin
+        $(CP) $(PKG_INSTALL_DIR)/usr/bin/* $(1)/usr/bin/
+
+        $(INSTALL_DIR) $(1)/usr/sbin
+        $(CP) $(PKG_INSTALL_DIR)/usr/sbin/* $(1)/usr/sbin/
+
+        $(INSTALL_DIR) $(1)/etc
+        $(CP) $(PKG_INSTALL_DIR)/etc/* $(1)/etc/
+
+        $(INSTALL_DIR) $(1)/var/state
+        $(CP) $(PKG_INSTALL_DIR)/var/state/* $(1)/var/state/
+
+        $(INSTALL_DIR) $(1)/usr/include
+        $(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include/
+
+        $(INSTALL_DIR) $(1)/usr/lib
+        $(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
 endef
 
 $(eval $(call BuildPackage,telldus-core))
