@@ -1,0 +1,12 @@
+--- a/common/CMakeLists.txt
++++ b/common/CMakeLists.txt
+@@ -72,6 +72,9 @@ ELSE (APPLE)
+ 		EventHandler_unix.cpp
+ 		Socket_unix.cpp
+ 	)
++        LIST(APPEND telldus-common_LIBRARIES
++                iconv
++        )
+ ENDIF (APPLE)
+ 
+ 
